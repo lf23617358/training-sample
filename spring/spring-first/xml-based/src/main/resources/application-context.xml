@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="demoUser" class="com.iisigroup.domain.User">
+		<property name="firstName" value="Hatsune" />
+		<property name="lastName" value="Miku" />
+	</bean>
+
+	<bean name="helloService" class="com.iisigroup.service.HelloService">
+		<constructor-arg>
+			<ref bean="demoUser" />
+		</constructor-arg>
+	</bean>
+</beans>
