@@ -11,14 +11,25 @@
 	<bean id="logAspect" class="com.iisigroup.aspect.LogAspect" />
 	<aop:config>
 		<aop:aspect id="aspectLoggging" ref="logAspect">
+			<!-- pointcut -->
 			<aop:pointcut id="pointcut"
 				expression="execution(* com.iisigroup.service..*(..))" />
+
+			<!-- before -->
 			<aop:before method="logBefore" pointcut-ref="pointcut" />
+
+			<!-- after -->
 			<aop:after method="logAfter" pointcut-ref="pointcut" />
+
+			<!-- after returning -->
 			<aop:after-returning method="logAfterReturning"
 				returning="result" pointcut-ref="pointcut" />
+
+			<!-- after throwing -->
 			<aop:after-throwing method="logAfterThrowing"
 				throwing="error" pointcut-ref="pointcut" />
+
+			<!-- around -->
 			<aop:around method="logAround" pointcut-ref="pointcut" />
 		</aop:aspect>
 	</aop:config>
