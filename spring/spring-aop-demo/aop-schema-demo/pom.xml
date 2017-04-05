@@ -8,5 +8,4 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>aop-schema-demo</artifactId>
-	<name>aop-schema-demo</name>
 </project>
