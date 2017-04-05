@@ -14,6 +14,7 @@ public class App {
 		// ClassPathXmlApplicationContext("application-context.xml");
 
 		/** Init ApplicationContext by Java **/
+		@SuppressWarnings("resource")
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
 		/** get bean **/

@@ -9,6 +9,7 @@ import com.iisigroup.service.IHelloService;
 
 public class App {
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		IHelloService helloService = context.getBean(HelloService.class);
 		helloService.sayHello();
