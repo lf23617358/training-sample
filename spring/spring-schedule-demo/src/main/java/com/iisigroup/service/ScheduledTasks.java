@@ -10,8 +10,13 @@ import org.springframework.stereotype.Component;
 public class ScheduledTasks {
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
+	@Scheduled(fixedDelay = 2000)
+	public void reportByFixedDelay() {
+		System.out.println("I'm fixed delay. The time is now " + dateFormat.format(new Date()));
+	}
+
 	@Scheduled(initialDelay = 1000, fixedRate = 2000)
-	public void reportByFixed() {
+	public void reportByFixedRate() {
 		System.out.println("I'm fixed rate. The time is now " + dateFormat.format(new Date()));
 	}
 
