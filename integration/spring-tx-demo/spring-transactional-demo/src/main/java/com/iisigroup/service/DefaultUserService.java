@@ -9,7 +9,7 @@ import com.iisigroup.domain.User;
 
 @Service
 @Transactional
-public class TxDefaultUserService implements UserService {
+public class DefaultUserService implements UserService {
 
 	@Override
 	@Transactional

@@ -5,16 +5,19 @@
 	<groupId>com.iisigroup</groupId>
 	<artifactId>spring-tx-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
+	<packaging>pom</packaging>
+	<modules>
+		<module>spring-transactional-demo</module>
+		<module>spring-txadvice-demo</module>
+	</modules>
 	<properties>
 		<!-- Skip artifact deployment -->
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
+		<slf4.version>1.5.8</slf4.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -52,28 +55,26 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.1.4.Final</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.5.8</version>
+			<version>${slf4.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.5.8</version>
+			<version>${slf4.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.8</version>
+			<version>${slf4.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
 		</dependency>
-
 		<!-- The tutorials use JUnit test cases to illustrate usage -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -81,7 +82,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- The tutorials use the H2 in-memory database -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -90,7 +90,6 @@
 			<!-- <scope>test</scope> -->
 		</dependency>
 	</dependencies>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
