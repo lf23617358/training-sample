@@ -34,7 +34,6 @@ public class UserController {
 
 	@GetMapping
 	public String userPage(Model model) {
-		model.addAttribute("message", "Hello World!");
 		return "user";
 	}
 
@@ -70,12 +69,6 @@ public class UserController {
 			userService.delete(id);
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
-	}
-
-	@GetMapping("sayHello")
-	@ResponseBody
-	public String hello() {
-		return "哈囉";
 	}
 
 }
