@@ -2,10 +2,11 @@ package com.iisigroup.service;
 
 import java.util.List;
 
+import static org.junit.Assert.*;
+
 import javax.sql.DataSource;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,9 +53,9 @@ public class DefaultUserServiceTest {
 		userDto.setCountry("日本");
 		long id = userService.insert(userDto);
 		UserDto newUserDto = userService.findByPrimary(id);
-		Assert.assertEquals("testuser3", newUserDto.getName());
-		Assert.assertEquals(Integer.valueOf(30), newUserDto.getAge());
-		Assert.assertEquals("日本", newUserDto.getCountry());
+		assertEquals("testuser3", newUserDto.getName());
+		assertEquals(Integer.valueOf(30), newUserDto.getAge());
+		assertEquals("日本", newUserDto.getCountry());
 	}
 
 	@Test
@@ -64,7 +65,7 @@ public class DefaultUserServiceTest {
 		userDto.setAge(30);
 		userService.update(userDto);
 		UserDto newUserDto = userService.findByPrimary(1l);
-		Assert.assertEquals(Integer.valueOf(30), newUserDto.getAge());
+		assertEquals(Integer.valueOf(30), newUserDto.getAge());
 	}
 
 	@Test
@@ -72,16 +73,16 @@ public class DefaultUserServiceTest {
 	public void testDelete() {
 		userService.delete(1l);
 		UserDto userDto = userService.findByPrimary(1l);
-		Assert.assertNull(userDto);
+		assertNull(userDto);
 	}
 
 	@Test
 	public void testFindByPrimary() {
 		UserDto userDto = userService.findByPrimary(1l);
-		Assert.assertEquals(Long.valueOf(1l), userDto.getId());
-		Assert.assertEquals("testuser1", userDto.getName());
-		Assert.assertEquals(Integer.valueOf(18), userDto.getAge());
-		Assert.assertEquals("台灣", userDto.getCountry());
+		assertEquals(Long.valueOf(1l), userDto.getId());
+		assertEquals("testuser1", userDto.getName());
+		assertEquals(Integer.valueOf(18), userDto.getAge());
+		assertEquals("台灣", userDto.getCountry());
 	}
 
 	@Test
@@ -93,9 +94,9 @@ public class DefaultUserServiceTest {
 		for (UserDto u : userDtos) {
 			System.out.print(u.getName() + " " + u.getAge());
 		}
-		Assert.assertEquals("testuser1", userDtos.get(0).getName());
-		Assert.assertEquals(Integer.valueOf(18), userDtos.get(0).getAge());
-		Assert.assertEquals("台灣", userDtos.get(0).getCountry());
+		assertEquals("testuser1", userDtos.get(0).getName());
+		assertEquals(Integer.valueOf(18), userDtos.get(0).getAge());
+		assertEquals("台灣", userDtos.get(0).getCountry());
 	}
 
 //	@Test
@@ -111,19 +112,19 @@ public class DefaultUserServiceTest {
 	@Test
 	public void testFindAll() {
 		List<UserDto> userDtos = userService.findAll();
-		Assert.assertEquals(JdbcTestUtils.countRowsInTable(jdbcTemplate, "user"), userDtos.size());
-		Assert.assertEquals("testuser1", userDtos.get(0).getName());
-		Assert.assertEquals(Integer.valueOf(18), userDtos.get(0).getAge());
-		Assert.assertEquals("台灣", userDtos.get(0).getCountry());
-		Assert.assertEquals("testuser2", userDtos.get(1).getName());
-		Assert.assertEquals(Integer.valueOf(22), userDtos.get(1).getAge());
-		Assert.assertEquals("美國", userDtos.get(1).getCountry());
+		assertEquals(JdbcTestUtils.countRowsInTable(jdbcTemplate, "user"), userDtos.size());
+		assertEquals("testuser1", userDtos.get(0).getName());
+		assertEquals(Integer.valueOf(18), userDtos.get(0).getAge());
+		assertEquals("台灣", userDtos.get(0).getCountry());
+		assertEquals("testuser2", userDtos.get(1).getName());
+		assertEquals(Integer.valueOf(22), userDtos.get(1).getAge());
+		assertEquals("美國", userDtos.get(1).getCountry());
 	}
 
 	@Test
 	public void testCount() {
 		long count = userService.count();
-		Assert.assertEquals(JdbcTestUtils.countRowsInTable(jdbcTemplate, "user"), count);
+		assertEquals(JdbcTestUtils.countRowsInTable(jdbcTemplate, "user"), count);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.iisigroup.datatable.mapping;
+package com.iisigroup.datatable;
 
 public class TableInput<T> {
 	private int limit;

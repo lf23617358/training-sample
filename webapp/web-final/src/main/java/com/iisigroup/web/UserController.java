@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.iisigroup.datatable.mapping.TableInput;
-import com.iisigroup.datatable.mapping.TableOutput;
+import com.iisigroup.datatable.TableInput;
+import com.iisigroup.datatable.TableOutput;
 import com.iisigroup.dto.UserDto;
 import com.iisigroup.service.UserService;
 
@@ -62,9 +62,9 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@DeleteMapping("removeUser")
+	@DeleteMapping("deleteUser")
 	@ResponseBody
-	public ResponseEntity<String> removeUser(@RequestBody long[] ids) {
+	public ResponseEntity<String> deleteUser(@RequestBody long[] ids) {
 		for (long id : ids) {
 			userService.delete(id);
 		}

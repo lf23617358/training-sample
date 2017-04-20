@@ -30,7 +30,7 @@ $(function() {
 	// delete table data
 	$("#deleteBtn").click(
 			function() {
-				ajaxUtils('user/removeUser', getIdSelections(), 'delete').done(
+				ajaxUtils('user/deleteUser', getIdSelections(), 'delete').done(
 						function() {
 							table.bootstrapTable('refresh')
 							showAlert('Remove item successful!', 'success')
