@@ -1,0 +1,11 @@
+INSERT INTO USER (id, name, age, country) values (1,'testuser1',18, '台灣');
+INSERT INTO USER (id, name, age, country) values (2,'testuser2',22, '美國');
+INSERT INTO USER (id, name, age, country) values (3,'testuser3',22, '美國');
+INSERT INTO USER (id, name, age, country) values (4,'testuser4',22, '美國');
+INSERT INTO USER (id, name, age, country) values (5,'testuser5',22, '美國');
+INSERT INTO USER (id, name, age, country) values (6,'testuser6',22, '美國');
+INSERT INTO USER (id, name, age, country) values (7,'testuser7',22, '美國');
+INSERT INTO USER (id, name, age, country) values (8,'testuser8',22, '美國');
+INSERT INTO USER (id, name, age, country) values (9,'testuser9',22, '美國');
+INSERT INTO USER (id, name, age, country) values (10,'testuser10',22, '美國');
+INSERT INTO USER (id, name, age, country) values (11,'testuser11',22, '美國');
