@@ -67,14 +67,14 @@ public class JPAUserRepository implements UserRepository {
 		return query;
 	}
 
-	private CriteriaQuery<Long> getQueryForCount(User po) {
-		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Long> query = cb.createQuery(Long.class);
-		Root<User> root = query.from(User.class);
-		query.select(cb.count(root));
-		query.where(cb.and(getPredicates(cb, root, po)));
-		return query;
-	}
+	// private CriteriaQuery<Long> getQueryForCount(User po) {
+	// CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+	// CriteriaQuery<Long> query = cb.createQuery(Long.class);
+	// Root<User> root = query.from(User.class);
+	// query.select(cb.count(root));
+	// query.where(cb.and(getPredicates(cb, root, po)));
+	// return query;
+	// }
 
 	private Predicate[] getPredicates(CriteriaBuilder cb, Root<User> root, User po) {
 		List<Predicate> predicates = new ArrayList<>();
