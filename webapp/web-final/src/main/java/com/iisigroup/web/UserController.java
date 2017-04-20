@@ -33,7 +33,7 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping
-	public String userPage(Model model) {
+	public String userPage() {
 		return "user";
 	}
 
