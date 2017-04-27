@@ -33,6 +33,11 @@ public class DefaultUserService implements UserService {
 	}
 
 	@Override
+	public void delete(Long[] ids) {
+		userRepository.delete(ids);
+	}
+
+	@Override
 	@Transactional(readOnly = true)
 	public UserDto findByPrimary(Long id) {
 		return BeanUtils.convertObj(userRepository.findByPrimary(id), UserDto.class);

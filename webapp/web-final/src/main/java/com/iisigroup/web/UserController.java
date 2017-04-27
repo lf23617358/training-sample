@@ -63,10 +63,8 @@ public class UserController {
 
 	@DeleteMapping("deleteUser")
 	@ResponseBody
-	public ResponseEntity<String> deleteUser(@RequestBody long[] ids) {
-		for (long id : ids) {
-			userService.delete(id);
-		}
+	public ResponseEntity<String> deleteUser(@RequestBody Long[] ids) {
+		userService.delete(ids);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

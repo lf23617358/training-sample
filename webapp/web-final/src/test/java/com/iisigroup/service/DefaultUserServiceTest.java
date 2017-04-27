@@ -77,6 +77,16 @@ public class DefaultUserServiceTest {
 	}
 
 	@Test
+	@Rollback
+	public void testDeleteIds() {
+		userService.delete(new Long[] { 1l, 2l });
+		UserDto userDto = userService.findByPrimary(1l);
+		assertNull(userDto);
+		userDto = userService.findByPrimary(2l);
+		assertNull(userDto);
+	}
+
+	@Test
 	public void testFindByPrimary() {
 		UserDto userDto = userService.findByPrimary(1l);
 		assertEquals(Long.valueOf(1l), userDto.getId());
@@ -99,15 +109,15 @@ public class DefaultUserServiceTest {
 		assertEquals("台灣", userDtos.get(0).getCountry());
 	}
 
-//	@Test
-//	public void testFindAllByPage() {
-//		UserDto userDto = new UserDto();
-//		Page<UserDto> userDtos = userService.findByPage(userDto, 1, 5);
-//		for (UserDto u : userDtos.getData()) {
-//			System.out.print(u.getName() + " " + u.getAge());
-//		}
-//		Assert.assertEquals("testuser2", userDtos.getData().get(0).getName());
-//	}
+	// @Test
+	// public void testFindAllByPage() {
+	// UserDto userDto = new UserDto();
+	// Page<UserDto> userDtos = userService.findByPage(userDto, 1, 5);
+	// for (UserDto u : userDtos.getData()) {
+	// System.out.print(u.getName() + " " + u.getAge());
+	// }
+	// Assert.assertEquals("testuser2", userDtos.getData().get(0).getName());
+	// }
 
 	@Test
 	public void testFindAll() {

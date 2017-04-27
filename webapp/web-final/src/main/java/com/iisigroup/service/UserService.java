@@ -11,6 +11,8 @@ public interface UserService {
 
 	public void delete(Long id);
 
+	public void delete(Long[] ids);
+
 	public UserDto findByPrimary(Long id);
 
 	public List<UserDto> findAll();

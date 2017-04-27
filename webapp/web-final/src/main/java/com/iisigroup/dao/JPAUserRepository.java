@@ -1,10 +1,12 @@
 package com.iisigroup.dao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -35,6 +37,13 @@ public class JPAUserRepository implements UserRepository {
 	public void delete(Long id) {
 		User user = entityManager.find(User.class, id);
 		entityManager.remove(user);
+	}
+
+	@Override
+	public void delete(Long[] ids) {
+		Query query = entityManager.createQuery("delete from User WHERE id in :ids");
+		query.setParameter("ids", Arrays.asList(ids));
+		query.executeUpdate();
 	}
 
 	@Override

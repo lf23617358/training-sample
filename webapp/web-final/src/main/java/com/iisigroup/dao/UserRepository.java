@@ -11,6 +11,8 @@ public interface UserRepository {
 
 	public void delete(Long id);
 
+	public void delete(Long[] ids);
+
 	public User findByPrimary(Long id);
 
 	public List<User> findAll();
